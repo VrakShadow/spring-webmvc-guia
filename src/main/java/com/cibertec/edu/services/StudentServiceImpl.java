@@ -31,4 +31,15 @@ public class StudentServiceImpl implements StudentService {
 		return null;
 	}
 
+	@Override
+	public Student saveStudent(Student newStudent) {
+		// TODO Auto-generated method stub
+		try {
+			Student savedStudent = this.studentRepository.save(newStudent);
+			return savedStudent;
+		} catch (Exception ex) {
+			throw ex;
+		}
+	}
+
 }

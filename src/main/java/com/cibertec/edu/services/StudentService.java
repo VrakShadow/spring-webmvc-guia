@@ -9,4 +9,6 @@ public interface StudentService {
 	public List<Student> getAllStudents();
 	
 	public Student getOneStudent(Long id);
+	
+	public Student saveStudent(Student newStudent);
 }

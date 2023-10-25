@@ -19,8 +19,9 @@ public class SpringSecurityConfig {
 		
 	@Bean
 	protected SecurityFilterChain configure(HttpSecurity http) throws Exception{
-		http.authorizeHttpRequests().requestMatchers("/","/css/**","/js/**","/images/**","/home").permitAll()
+		http.csrf().disable().authorizeRequests().requestMatchers("/","/css/**","/js/**","/images/**","/home").permitAll()
 		.requestMatchers("/home/estudiante/**").hasAnyRole("ADMIN")
+		.requestMatchers("/api/**").anonymous()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
