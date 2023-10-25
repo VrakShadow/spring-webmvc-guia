@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body>
+	<div class="container py-4">
+		<div th:if="${estudiante.nombre != null}">
+			<label for="estudiante_nombre">Estudiante</label>
+			<p id="estudiante_nombre" th:text="${estudiante.nombre}"></p>
+			<br />
+
+			<label for="estudiante_dni">Dni</label>
+			<p id="estudiante_dni" th:text="${estudiante.dni}"></p>
+
+			<label for="estudiante_codigo">Codigo</label>
+			<p id="estudiante_codigo" th:text="${estudiante.codigo}"></p>
+
+			<label for="estudiante_anio_ingreso">Año ingreso</label>
+			<p id="estudiante_anio_ingreso" th:text="${estudiante.anioIngreso}"></p>
+
+
+			<label for="estudiante_estado">Estado</label>
+			<p id="estudiante_estado" th:text="${estudiante.estado}"></p>
+		</div>
+		<div th:unless="${estudiante.nombre != null}">No se encontro informacion del usuario</div>
+
+		<button id="btn-back" style="color: green" onclick="history.back()">Volver</button>
+	</div>
+
+
+	<header th:replace="layout/layout :: header"></header>
+
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+
+
+</html>

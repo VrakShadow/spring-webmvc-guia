@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/layout :: head"></head>
+
+<body th:onload="clock()">
+	<div class="container py-4">
+		<h1 class="color-rojo" th:text="${titulo}"></h1>
+		<h2 class="color-azul">Hola Estudiantes</h2>
+		<img th:src="@{/images/spring.png}" />
+
+		<div th:if="${estudiantes.isEmpty()}">no hay usuarios en la lista</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Dni</th>
+					<th>Codigo</th>
+					<th>Año Ingreso</th>
+					<th>Ver</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante: ${estudiantes}">
+					<td th:text="${estudiante.nombre}"></td>
+					<td th:text="${estudiante.dni}"></td>
+					<td th:text="${estudiante.codigo}"></td>
+					<td th:text="${estudiante.anioIngreso}"></td>
+					<td><a th:href="@{/home/estudiante/} + ${estudiante.id}"><span>Ver Estudiante</span></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<header th:replace="layout/layout :: header"></header>
+	
+	<footer th:replace="layout/layout :: footer"></footer>
+
+</body>
+
+</html>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
